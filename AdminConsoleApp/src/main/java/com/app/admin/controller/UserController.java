@@ -25,9 +25,24 @@ public class UserController {
 		return repository.findAll();
 	}
 
-	@RequestMapping(path = "/{user}" )
-	public User find(@PathVariable("user") String user) {
+	@RequestMapping(path = "/id/{id}" )
+	public User findById(@PathVariable("id") int id) {
+		return repository.findById(id);
+	}
+	
+	@RequestMapping(path = "/name/{user}" )
+	public User findByName(@PathVariable("user") String user) {
 		return repository.findByName(user);
+	}
+	
+	@RequestMapping(path = "/phone/{phone}" )
+	public User findByPhone(@PathVariable("phone") String phone) {
+		return repository.findByPhone(phone);
+	}
+	
+	@RequestMapping(path = "/email/{email}" )
+	public User findByEmail(@PathVariable("email") String email) {
+		return repository.findByEmail(email);
 	}
 
 	@PostMapping(consumes = "application/json")
@@ -35,13 +50,24 @@ public class UserController {
 		return repository.save(user);
 	}
 
-	@DeleteMapping(path = "/{user}")
-	public void delete(@PathVariable("user") User user) {
-		repository.delete(user);
+	@DeleteMapping(path = "/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
+		repository.delete(repository.findById(id));
 	}
 
-	@PutMapping(path = "/{user}")
+	@PutMapping(path = "/update/{user}")
 	public User update(@PathVariable("user") String user, @RequestBody User userObj) throws BadHttpRequest {
-		return repository.save(userObj);
+		User u = repository.findByName(user);
+		if(userObj.getDepartment() != null) u.setDepartment(userObj.getDepartment());
+		if(userObj.getDob() != null) u.setDob(userObj.getDob());
+		if(userObj.getEmail() != null) u.setEmail(userObj.getEmail());
+		if(userObj.getGender() != null) u.setGender(userObj.getGender());
+		if(userObj.getMisc() != null) u.setMisc(userObj.getMisc());
+		if(userObj.getName() != null) u.setName(userObj.getName());
+		if(userObj.getPhone() != null) u.setPhone(userObj.getPhone());
+		if(userObj.getPicname() != null) u.setPicname(userObj.getPicname());
+		if(userObj.getPictemplate() != null) u.setPictemplate(userObj.getPictemplate());
+		if(userObj.getPicurl() != null) u.setPicurl(userObj.getPicurl());
+		return repository.save(u);
 	}
 }

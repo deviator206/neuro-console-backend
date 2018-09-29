@@ -28,7 +28,7 @@ public class HistoryController {
 	}
 
 	@GetMapping(path = "/{cameraType}")
-	public History find(@PathVariable("cameraType") String cameraType) {
+	public List<History> find(@PathVariable("cameraType") String cameraType) {
 		return repository.findByCameratype(cameraType);
 	}
 
@@ -37,12 +37,12 @@ public class HistoryController {
 		return repository.save(history);
 	}
 
-	@DeleteMapping(path = "/{history}")
-	public void delete(@PathVariable("history") History history) {
-		repository.delete(history);
+	@DeleteMapping(path = "/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
+		repository.delete(repository.findById(id));
 	}
 
-	@PutMapping(path = "/{name}")
+	@PutMapping(path = "/update/{name}")
 	public History update(@PathVariable("name") String name, @RequestBody History history) throws BadHttpRequest {
 			return repository.save(history);
 	}

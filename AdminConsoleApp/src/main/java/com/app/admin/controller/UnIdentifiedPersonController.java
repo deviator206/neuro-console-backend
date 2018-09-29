@@ -28,7 +28,13 @@ public class UnIdentifiedPersonController {
 		return repository.findAll();
 	}
 
-	@GetMapping(path = "/{name}")
+	@GetMapping(path = "/id/{id}")
+	public UnIdentifiedPerson findById(@PathVariable("id") int id) {
+		return repository.findById(id);
+	}
+
+	
+	@GetMapping(path = "/name/{name}")
 	public UnIdentifiedPerson find(@PathVariable("name") String name) {
 		return repository.findByName(name);
 	}
@@ -38,12 +44,13 @@ public class UnIdentifiedPersonController {
 		return repository.save(unIdentifiedPerson);
 	}
 
-	@DeleteMapping(path = "/{unidentifiedperson}")
-	public void delete(@PathVariable("unidentifiedperson") UnIdentifiedPerson unIdentifiedPerson) {
-		repository.delete(unIdentifiedPerson);
+	@DeleteMapping(path = "/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
+		repository.delete(repository.findById(id));
 	}
+	
 
-	@PutMapping(path = "/{name}")
+	@PutMapping(path = "/update/{name}")
 	public UnIdentifiedPerson update(@PathVariable("name") String name, @RequestBody UnIdentifiedPerson unIdentifiedPerson) throws BadHttpRequest {
 			return repository.save(unIdentifiedPerson);
 	}

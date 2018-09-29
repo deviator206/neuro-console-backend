@@ -38,12 +38,12 @@ public class CameraController {
 		return repository.save(camera);
 	}
 
-	@DeleteMapping(path = "/{name}")
-	public void delete(@PathVariable("name") Camera name) {
-		repository.delete(name);
+	@DeleteMapping(path = "/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
+		repository.delete(repository.findById(id));
 	}
 
-	@PutMapping(path = "/{name}")
+	@PutMapping(path = "/update/{name}")
 	public Camera update(@PathVariable("name") String name, @RequestBody Camera camera) throws BadHttpRequest {
 //		if (repository.exists(name)) {
 //			camera.setName(name);

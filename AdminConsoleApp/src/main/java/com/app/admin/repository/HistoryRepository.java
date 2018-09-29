@@ -17,7 +17,7 @@ public interface HistoryRepository extends CrudRepository<History, Long> {
 	
 	History findByTimeout(Timestamp timeout);
 
-	History findByCameratype(String type);
+	List<History> findByCameratype(String type);
 
 	List<History> findAll();
 

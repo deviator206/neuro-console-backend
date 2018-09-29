@@ -23,7 +23,7 @@ public class NotificationController {
 	@Autowired
 	private NotificationRepository repository;
 
-	@GetMapping("/histories")
+	@GetMapping("/notifications")
 	public List<Notification> findAll() {
 		return repository.findAll();
 	}
@@ -38,12 +38,12 @@ public class NotificationController {
 		return repository.save(notification);
 	}
 
-	@DeleteMapping(path = "/{history}")
-	public void delete(@PathVariable("history") Notification notification) {
-		repository.delete(notification);
+	@DeleteMapping(path = "/delete/{id}")
+	public void delete(@PathVariable("id") int id) {
+		repository.delete(repository.findById(id));
 	}
 
-	@PutMapping(path = "/{name}")
+	@PutMapping(path = "/update/{name}")
 	public Notification update(@PathVariable("name") String name, @RequestBody Notification notification)
 			throws BadHttpRequest {
 		return repository.save(notification);
