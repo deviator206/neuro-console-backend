@@ -5,7 +5,7 @@ Created Rest Services and their respective urls are as follows -
 a. Post Rest Service - For CREATION OF USER
             * URL =>http://localhost:8080/user
            * REQUEST BODY => {
-						"name" : "Tushar Patil", 
+						"name" : "xyz abc", 
 						"gender" : "male",
 						"dob" : "2000-01-31",
 						"phone" : "1234567890",
@@ -13,13 +13,13 @@ a. Post Rest Service - For CREATION OF USER
 						"empid": 6,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": null
 					}
            * OUTPUT => {
 						"id": 0,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -27,17 +27,17 @@ a. Post Rest Service - For CREATION OF USER
 						"empid": 0,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh…...."
 					}
 b. Get Rest Service - For GETTING USER DATA
 i> findByName
-           * URL => http://localhost:8080/user/name/Tushar%20Patil
+           * URL => http://localhost:8080/user/name/xyz%20abc
            * REQUEST BODY => No body needed.
            * OUTPUT => {
 						"id": 10,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -45,8 +45,8 @@ i> findByName
 						"empid": 0,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
@@ -56,7 +56,7 @@ URL =>  http://localhost:8080/user/id/10
  REQUEST BODY => No body needed.
 OUTPUT => {
 						"id": 10,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -64,8 +64,8 @@ OUTPUT => {
 						"empid": 0,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 					
@@ -75,7 +75,7 @@ URL =>  http://localhost:8080/user/email/abc@abc.com
 REQUEST BODY => No body needed.
 OUTPUT => {
 						"id": 10,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -83,8 +83,8 @@ OUTPUT => {
 						"empid": 0,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
@@ -94,7 +94,7 @@ URL =>  http://localhost:8080/user/phone/1234567890
 REQUEST BODY => No body needed.
 OUTPUT => {
 						"id": 10,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -102,8 +102,8 @@ OUTPUT => {
 						"empid": 0,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
@@ -112,7 +112,7 @@ URL =>  http://localhost:8080/user/users
 REQUEST BODY => No body needed.
 OUTPUT => [
 						{"id":1,
-						"name":"Sridevi Shah",
+						"name":"sri ijk",
 						"gender":"Female",
 						"dob":"2018-09-10T22:31:27.000+0000",
 						"phone":"9812654378",
@@ -124,7 +124,7 @@ OUTPUT => [
 						"picname":"subject004.png",
 						"pictemplate":"iVBORw0KGgoAA..."},
 						{"id":3,
-						"name":"RuchaPuttewar",
+						"name":"Rucha",
 						"gender":"Female",
 						"dob":"2018-09-10T22:34:38.000+0000",
 						"phone":"9812654738",
@@ -136,7 +136,7 @@ OUTPUT => [
 						"picname":"subject002.png",
 						"pictemplate":"iVBORw0KGgoAA..."},
 						{"id":4,
-						"name":"Trupti Puttewar",
+						"name":"Trupti ",
 						"gender":"Female",
 						"dob":"2018-09-10T22:36:15.000+0000",
 						"phone":"9814562783",
@@ -148,16 +148,16 @@ OUTPUT => [
 						"picname":"subject005.png",
 						"pictemplate":"/9j/4AA..."},
 						{"id":5,
-						"name":"Sandeep Bamane",
+						"name":"san Ba",
 						"gender":"Male",
 						"dob":"1983-09-22T18:30:00.000+0000",
 						"phone":"9815554378",
-						"email":"sandeep@gmail.com",
+						"email":"san@gmail.com",
 						"empid":4,
 						"department":"Software Developer",
 						"misc":"ZZZZZ",
-						"picurl":"D:\\neuroImgDB\\sandeep_bamane.png",
-						"picname":"sandeep_bamane.png",
+						"picurl":"D:\\neuroImgDB\\san_Ba.png",
+						"picname":"san_Ba.png",
 						"pictemplate":"iVBORw0KGgoAA..."},
 						{"id":6,
 						"name":"Trupti Xyz",
@@ -172,7 +172,7 @@ OUTPUT => [
 						"picname":"trupti_abc.png",
 						"pictemplate":"iVBORw0KGgoAA..."},
 						{"id":10,
-						"name":"Tushar Patil",
+						"name":"xyz abc",
 						"gender":"male",
 						"dob":"2000-01-31T00:00:00.000+0000",
 						"phone":"1234567890",
@@ -180,17 +180,17 @@ OUTPUT => [
 						"empid":0,
 						"department":"HR",
 						"misc":"KKKKKKKKKK",
-						"picurl":"D:\\neuroImgDB\\tushar_patil.png",
-						"picname":"tushar_patil.png",
+						"picurl":"D:\\neuroImgDB\\xyz_abc.png",
+						"picname":"xyz_abc.png",
 						"pictemplate":"iVBORw0KGgoAA..."}
 						]
 
 c. Update Rest Service - For UPDATING USER DATA
-URL => http://localhost:8080/user/update/Tushar%20Patil
+URL => http://localhost:8080/user/update/xyz%20abc
 REQUEST BODY => { "empid": 6 }
 OUTPUT => {
 						"id": 10,
-						"name": "Tushar Patil",
+						"name": "xyz abc",
 						"gender": "male",
 						"dob": "2000-01-31T00:00:00.000+0000",
 						"phone": "1234567890",
@@ -198,8 +198,8 @@ OUTPUT => {
 						"empid": 6,
 						"department": "HR",
 						"misc": "KKKKKKKKKK",
-						"picurl": "D:\\neuroImgDB\\tushar_patil.png",
-						"picname": "tushar_patil.png",
+						"picurl": "D:\\neuroImgDB\\xyz_abc.png",
+						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
