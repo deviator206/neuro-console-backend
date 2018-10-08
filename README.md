@@ -390,20 +390,8 @@ OUTPUT => Deleted id = 6 Successfully
 
 
 	
-4. UnIdentified Person
-	a. Post Rest Service - For CREATING/ADDING UNIDENTIFIED PERSON DATA
-	b. Get Rest Service - For GETTING UNIDENTIFIED PERSON DATA
-	c. Update Rest Service -For  UPDATING UNIDENTIFIED PERSON DATA
-	d. Delete Rest Service - For REMOVING UNIDENTIFIED PERSON DATA
-	
-5. Notification 
-	a. Post Rest Service - For CREATING/ADDING NOTIFICATION DATA
-	b. Get Rest Service - For GETTING NOTIFICATION DATA
-	c. Update Rest Service -For  UPDATING NOTIFICATION DATA
-	d. Delete Rest Service - For REMOVING NOTIFICATION DATA
 
-	
-6. LoginDetails (for login)
+4. LoginDetails (for login)
     a. Post Rest Service - For CREATING/ADDING LOGINDETAILS DATA
 URL => http://localhost:8080/login
 REQUEST BODY => {
@@ -476,9 +464,49 @@ OUTPUT => Deleted username = neuro Successfully
 
 
 	
-7. First IN and Last OUT TIMINGS of Employee 
+5. First IN and Last OUT TIMINGS of Employee 
 	a. By Date Rest Service - To get data of employee for the date
-	b. By Month Rest Service - To get data of employee for the Month
-	c. Between Date Range Rest Service - To get data of employee Between the dates
+		URL =>  http://localhost:8080/attendance/fordate/2018-10-05
+		REQUEST BODY => No body needed.
+		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+
+
+b. By Month Rest Service - To get data of employee for the Month
+i>. using abbreviation for month names ex Jan, FEB, mar,etc...
+		URL =>  http://localhost:8080/attendance/formonth/OCT
+		REQUEST BODY => No body needed.
+		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+
+ii>. using  month names ex January, FEBRUARY, march,etc...
+		URL =>  http://localhost:8080/attendance/formonth/OCTOBER
+		REQUEST BODY => No body needed.
+		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+
+iii>. using  date String ex “2018-10-09”
+		URL =>  http://localhost:8080/attendance/formonth/2018-10-09
+		REQUEST BODY => No body needed.
+		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+
+
+
+c. Between Date Range Rest Service - To get data of employee Between the dates
+		URL =>  http://localhost:8080/attendance/fromto?from=2018-09-27&to=2018-10-05
+		REQUEST BODY => No body needed.
+		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+
 	
+Only one row as no data before 2018-10-05
+
+6. UnIdentified Person
+	a. Post Rest Service - For CREATING/ADDING UNIDENTIFIED PERSON DATA
+	b. Get Rest Service - For GETTING UNIDENTIFIED PERSON DATA
+	c. Update Rest Service -For  UPDATING UNIDENTIFIED PERSON DATA
+	d. Delete Rest Service - For REMOVING UNIDENTIFIED PERSON DATA
+	
+7. Notification 
+	a. Post Rest Service - For CREATING/ADDING NOTIFICATION DATA
+	b. Get Rest Service - For GETTING NOTIFICATION DATA
+	c. Update Rest Service -For  UPDATING NOTIFICATION DATA
+	d. Delete Rest Service - For REMOVING NOTIFICATION DATA
+
 
