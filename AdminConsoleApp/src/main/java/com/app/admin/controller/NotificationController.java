@@ -3,6 +3,7 @@ package com.app.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.app.admin.model.Notification;
 import com.app.admin.repository.NotificationRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/notification")
 public class NotificationController {
 	@Autowired
@@ -28,24 +30,37 @@ public class NotificationController {
 		return repository.findAll();
 	}
 
-	@GetMapping(path = "/{title}")
+	@GetMapping(path = "/title/{title}")
 	public Notification find(@PathVariable("title") String title) {
 		return repository.findByTitle(title);
 	}
 
 	@PostMapping(consumes = "application/json")
 	public Notification create(@RequestBody Notification notification) {
-		return repository.save(notification);
+		 repository.save(notification);
+		return repository.findByDescription(notification.getDescription());
 	}
 
-	@DeleteMapping(path = "/delete/{id}")
-	public void delete(@PathVariable("id") int id) {
+	@DeleteMapping(path = "/delete/id/{id}")
+	public String delete(@PathVariable("id") int id) {
 		repository.delete(repository.findById(id));
+		return "Deleted id = "+id+" Successfully";
 	}
 
-	@PutMapping(path = "/update/{name}")
+	@PutMapping(path = "/update/name/{name}")
 	public Notification update(@PathVariable("name") String name, @RequestBody Notification notification)
 			throws BadHttpRequest {
-		return repository.save(notification);
+		Notification notify = repository.findByDescription(name);
+		if (notification.getTarget() != null)
+			notify.setTarget(notification.getTarget());
+		if (notification.getOrigin() != null)
+			notify.setOrigin(notification.getOrigin());
+		if (notification.getTitle() != null)
+			notify.setTitle(notification.getTitle());
+		if (notification.getDescription() != null)
+			notify.setDescription(notification.getDescription());
+		if (notification.getStatus() != null)
+			notify.setStatus(notification.getStatus());
+		return repository.save(notify);
 	}
 }

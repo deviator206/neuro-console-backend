@@ -2,21 +2,16 @@ package com.app.admin.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "history")
-@NamedQueries({
-    @NamedQuery(
-    		name = "History.findByMinTimeInWhereDateIs", query = "select min(h.timein) from History h where h.date =?1"
-        ),
-    @NamedQuery(name = "History.findByMaxTimeOutWhereDateIs", query = "select max(h.timeout) from History h where h.date =?1")
-})
+@Access(value = AccessType.FIELD)
 public class History {
 
 	@Id
@@ -28,8 +23,6 @@ public class History {
 
 	@Column(name = "name")
 	private String name;
-
-	
 
 	@Column(name = "timein")
 	private Timestamp timein;

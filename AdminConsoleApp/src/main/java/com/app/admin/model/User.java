@@ -1,6 +1,5 @@
 package com.app.admin.model;
 
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -52,7 +51,7 @@ public class User {
 
 	@Column(name = "pictemplate")
 	@Lob
-	private Byte[] pictemplate;
+	private byte[] pictemplate;
 
 	public int getId() {
 		return id;
@@ -134,12 +133,12 @@ public class User {
 		this.picurl = picurl;
 	}
 
-	public Byte[] getPictemplate() {
+	public byte[] getPictemplate() {
 		return pictemplate;
 	}
 
-	public void setPictemplate(Byte[] pictemplate) {
-		this.pictemplate = pictemplate;
+	public void setPictemplate(byte[] inputStream) {
+		this.pictemplate = inputStream;
 	}
 	
 

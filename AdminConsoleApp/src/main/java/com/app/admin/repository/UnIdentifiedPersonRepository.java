@@ -14,6 +14,8 @@ public interface UnIdentifiedPersonRepository extends CrudRepository<UnIdentifie
 
 	UnIdentifiedPerson findById(int id);
 	List<UnIdentifiedPerson> findAll();
+	List<UnIdentifiedPerson> findByType(String type);
+	List<UnIdentifiedPerson> findByNameAndType(String name,String type);
 
 
 }

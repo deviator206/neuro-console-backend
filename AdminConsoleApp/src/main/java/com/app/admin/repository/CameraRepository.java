@@ -14,9 +14,7 @@ public interface CameraRepository extends CrudRepository<Camera, Long> {
 
 	Camera findById(int id);
 
-	Camera findByType(int type);
-
-//	boolean exists(String name);
+	Camera findByType(String type);
 
 	List<Camera> findAll();
 

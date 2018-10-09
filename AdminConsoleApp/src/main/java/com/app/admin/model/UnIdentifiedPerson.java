@@ -1,7 +1,7 @@
 package com.app.admin.model;
 
-import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +35,9 @@ public class UnIdentifiedPerson {
 
 	@Column(name = "purpose")
 	private String purpose;
+	
+	@Column(name = "type")
+	private String type;
 
 	@Column(name = "timestamp")
 	private Timestamp timestamp;
@@ -86,6 +89,24 @@ public class UnIdentifiedPerson {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
+	
+	
+
+	public String getPicname() {
+		return picname;
+	}
+
+	public void setPicname(String picname) {
+		this.picname = picname;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Timestamp getTimestamp() {
 		return timestamp;
@@ -97,8 +118,11 @@ public class UnIdentifiedPerson {
 
 	@Override
 	public String toString() {
-		return "UnIdentifiedPerson [id=" + id + ", name=" + name + ", picurl=" + picurl + ", pictemplate=" + pictemplate
-				+ ", approve=" + approve + ", purpose=" + purpose + ", timestamp=" + timestamp + "]";
+		return "UnIdentifiedPerson [id=" + id + ", name=" + name + ", picurl=" + picurl + ", picname=" + picname
+				+ ", pictemplate=" + Arrays.toString(pictemplate) + ", approve=" + approve + ", purpose=" + purpose
+				+ ", type=" + type + ", timestamp=" + timestamp + "]";
 	}
+
+	
 
 }

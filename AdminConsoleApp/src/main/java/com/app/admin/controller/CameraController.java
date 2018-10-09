@@ -3,6 +3,7 @@ package com.app.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.app.admin.model.User;
 import com.app.admin.repository.CameraRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/camera")
 public class CameraController {
 	@Autowired
@@ -28,28 +30,42 @@ public class CameraController {
 		return repository.findAll();
 	}
 
-	@GetMapping(path = "/{name}")
+	@GetMapping(path = "/name/{name}")
 	public Camera find(@PathVariable("name") String name) {
 		return repository.findByName(name);
+	}
+	
+	@GetMapping(path = "/id/{id}")
+	public Camera find(@PathVariable("id") int id) {
+		return repository.findById(id);
 	}
 
 	@PostMapping(consumes = "application/json")
 	public Camera create(@RequestBody Camera camera) {
-		return repository.save(camera);
+		repository.save(camera);
+		return repository.findByName(camera.getName());
 	}
 
-	@DeleteMapping(path = "/delete/{id}")
-	public void delete(@PathVariable("id") int id) {
+	@DeleteMapping(path = "/delete/id/{id}")
+	public String delete(@PathVariable("id") int id) {
 		repository.delete(repository.findById(id));
+		return "Deleted id = " + id + " Successfully";
 	}
 
-	@PutMapping(path = "/update/{name}")
+	@PutMapping(path = "/update/name/{name}")
 	public Camera update(@PathVariable("name") String name, @RequestBody Camera camera) throws BadHttpRequest {
-//		if (repository.exists(name)) {
-//			camera.setName(name);
-			return repository.save(camera);
-//		} else {
-//			throw new BadHttpRequest();
-//		}
+		Camera oCamera = repository.findByName(name);
+		if (oCamera != null) {
+			if (camera.getName() != null)
+				oCamera.setName(camera.getName());
+			if (camera.getLocation() != null)
+				oCamera.setLocation(camera.getLocation());
+			if (camera.getType() != null)
+				oCamera.setType(camera.getType());
+			return repository.save(oCamera);
+		} else {
+			return oCamera;
+		}
+
 	}
 }
