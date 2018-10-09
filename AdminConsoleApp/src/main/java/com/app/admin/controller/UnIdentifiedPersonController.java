@@ -52,14 +52,14 @@ public class UnIdentifiedPersonController {
 		return repository.save(unIdentifiedPerson);
 	}
 
-	@DeleteMapping(path = "/delete/{id}")
+	@DeleteMapping(path = "/delete/id/{id}")
 	public String delete(@PathVariable("id") int id) {
 		repository.delete(repository.findById(id));
 		return "Deleted id = "+id+" Successfully";
 	}
 	
 
-	@PutMapping(path = "/update/{name}")
+	@PutMapping(path = "/update/name/{name}")
 	public UnIdentifiedPerson update(@PathVariable("name") String name, @RequestBody UnIdentifiedPerson unIdentifiedPerson) throws BadHttpRequest {
 			return repository.save(unIdentifiedPerson);
 	}

@@ -1,10 +1,10 @@
-# neuro-console-backend
-Created Rest Services and their respective urls are as follows -
+	# neuro-console-backend
+	Created Rest Services and their respective urls are as follows -
 
-1. User 
-a. Post Rest Service - For CREATION OF USER
+	1. User 
+		a. Post Rest Service - For CREATION OF USER
             * URL =>http://localhost:8080/user
-           * REQUEST BODY => {
+            * REQUEST BODY => {
 						"name" : "xyz abc", 
 						"gender" : "male",
 						"dob" : "2000-01-31",
@@ -31,8 +31,9 @@ a. Post Rest Service - For CREATION OF USER
 						"picname": "xyz_abc.png",
 						"pictemplate": "iVBORw0KGgoAAAANSUh…...."
 					}
-b. Get Rest Service - For GETTING USER DATA
-i> findByName
+
+		b. Get Rest Service - For GETTING USER DATA
+			i> findByName
            * URL => http://localhost:8080/user/name/xyz%20abc
            * REQUEST BODY => No body needed.
            * OUTPUT => {
@@ -51,10 +52,10 @@ i> findByName
 					}
 
 					
-ii> findById			
-URL =>  http://localhost:8080/user/id/10
- REQUEST BODY => No body needed.
-OUTPUT => {
+			ii> findById			
+					URL =>  http://localhost:8080/user/id/10
+					REQUEST BODY => No body needed.
+					OUTPUT => {
 						"id": 10,
 						"name": "xyz abc",
 						"gender": "male",
@@ -70,10 +71,10 @@ OUTPUT => {
 					}
 					
 
-iii> findByEmail
-URL =>  http://localhost:8080/user/email/abc@abc.com
-REQUEST BODY => No body needed.
-OUTPUT => {
+			iii> findByEmail
+					URL =>  http://localhost:8080/user/email/abc@abc.com
+					REQUEST BODY => No body needed.
+					OUTPUT => {
 						"id": 10,
 						"name": "xyz abc",
 						"gender": "male",
@@ -89,10 +90,10 @@ OUTPUT => {
 					}
 
 					
-iv> findByPhone
-URL =>  http://localhost:8080/user/phone/1234567890
-REQUEST BODY => No body needed.
-OUTPUT => {
+			iv> findByPhone
+					URL =>  http://localhost:8080/user/phone/1234567890
+					REQUEST BODY => No body needed.
+					OUTPUT => {
 						"id": 10,
 						"name": "xyz abc",
 						"gender": "male",
@@ -107,10 +108,10 @@ OUTPUT => {
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
-v> findAll
-URL =>  http://localhost:8080/user/users
-REQUEST BODY => No body needed.
-OUTPUT => [
+				v> findAll
+					URL =>  http://localhost:8080/user/users
+					REQUEST BODY => No body needed.
+					OUTPUT => [
 						{"id":1,
 						"name":"sri ijk",
 						"gender":"Female",
@@ -185,10 +186,10 @@ OUTPUT => [
 						"pictemplate":"iVBORw0KGgoAA..."}
 						]
 
-c. Update Rest Service - For UPDATING USER DATA
-URL => http://localhost:8080/user/update/xyz%20abc
-REQUEST BODY => { "empid": 6 }
-OUTPUT => {
+		c. Update Rest Service - For UPDATING USER DATA
+				URL => http://localhost:8080/user/update/xyz%20abc
+				REQUEST BODY => { "empid": 6 }
+				OUTPUT => {
 						"id": 10,
 						"name": "xyz abc",
 						"gender": "male",
@@ -203,310 +204,409 @@ OUTPUT => {
 						"pictemplate": "iVBORw0KGgoAAAANSUh..."
 					}
 
-d. Delete Rest Service - For REMOVING USER DATA
-URL =>  http://localhost:8080/user/id/10
-REQUEST BODY => No body needed.
-OUTPUT =>  Deleted id = 10 Successfully
+		d. Delete Rest Service - For REMOVING USER DATA
+			URL =>  http://localhost:8080/user/id/10
+			REQUEST BODY => No body needed.
+			OUTPUT =>  Deleted id = 10 Successfully
 
 
-	
-
-
-
-2. Camera 
-a. Post Rest Service - For CREATING/ADDING NEW CAMERA DATA
-URL => http://localhost:8080/camera
-REQUEST BODY => {
+	2. CAMERA 
+		a. Post Rest Service - For CREATING/ADDING NEW CAMERA DATA
+			URL => http://localhost:8080/camera
+			REQUEST BODY => {
 				  	"name" : "Integrated Camera", 
 					"location" : "System",
 					"type": "IN"
 				}
-OUTPUT => {
+			OUTPUT => {
 				"id": 3,
 				"name": "Integrated Camera",
 				"location": "System",
 				"type": "IN"
 			}
 	
-b. Get Rest Service - For GETTING CAMERA DATA
+		b. Get Rest Service - For GETTING CAMERA DATA
 	
-i> findByName
-URL => http://localhost:8080/camera/name/webcam
-REQUEST BODY => No body needed.
-OUTPUT => {
+			i> findByName
+				URL => http://localhost:8080/camera/name/webcam
+				REQUEST BODY => No body needed.
+				OUTPUT => {
     			    "id": 2,
-    "name": "Webcam",
-    "location": "System",
-    "type": "OUT"
-}
+                 "name": "Webcam",
+                 "location": "System",
+                 "type": "OUT"
+              }
 
 					
-ii> findById			
-URL => http://localhost:8080/camera/id/1
-REQUEST BODY => No body needed.
-OUTPUT => {
-    "id": 2,
-    "name": "Webcam",
-    "location": "External",
-    "type": "OUT"
-}
+			ii> findById			
+				URL => http://localhost:8080/camera/id/1
+				REQUEST BODY => No body needed.
+				OUTPUT => {
+					    "id": 2,
+					    "name": "Webcam",
+					    "location": "External",
+					    "type": "OUT"
+					}
 					
+		iii> findALL
+			URL => http://localhost:8080/camera/cameras
+			REQUEST BODY => No body needed.
+			OUTPUT =>[
+			    {
+			        "id": 2,
+			        "name": "Webcam",
+			        "location": "External",
+			        "type": "OUT"
+			    },
+			    {
+			        "id": 3,
+			        "name": "Integrated Camera",
+			        "location": "System",
+			        "type": "IN"
+			    }
+			]
 
-iii> findALL
-URL => http://localhost:8080/camera/cameras
-REQUEST BODY => No body needed.
-OUTPUT =>[
-    {
-        "id": 2,
-        "name": "Webcam",
-        "location": "External",
-        "type": "OUT"
-    },
-    {
-        "id": 3,
-        "name": "Integrated Camera",
-        "location": "System",
-        "type": "IN"
-    }
-]
-
-
-c. Update Rest Service - For UPDATING CAMERA DATA
-URL => http://localhost:8080/camera/update/name/webcam
-REQUEST BODY => {
+		c. Update Rest Service - For UPDATING CAMERA DATA
+			URL => http://localhost:8080/camera/update/name/webcam
+			REQUEST BODY => {
 					"location" : "External"
 				}
-OUTPUT => {
+			OUTPUT => {
 				"id": 2,
 				"name": "Webcam",
 				"location": "External",
 				"type": "OUT"
-		}
+			}
 
-
-d. Delete Rest Service - For  REMOVING CAMERA DATA
-URL =>  http://localhost:8080/camera/delete/id/1
-REQUEST BODY => No body needed.
-OUTPUT => Deleted id = 1 Successfully
+		d. Delete Rest Service - For  REMOVING CAMERA DATA
+			URL =>  http://localhost:8080/camera/delete/id/1
+			REQUEST BODY => No body needed.
+			OUTPUT => Deleted id = 1 Successfully
 	
 	
 
+	3. HISTORY/TRACK 
 
-
-
-
-
-
-3. History/Track 
-
-a. Post Rest Service - For CREATING/ADDING HISTORY DATA
-THIS IS DONE FROM SURVEILLANCE APP
+		a. Post Rest Service - For CREATING/ADDING HISTORY DATA
+			THIS IS DONE FROM SURVEILLANCE APP
 	
-b. Get Rest Service - For GETTING HISTORY DATA
-i> findByCameratype
-URL => http://localhost:8080/history/cameratype/out
-REQUEST BODY => No body needed.
-OUTPUT => [{"id":1,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-09-25T18:30:00.000+0000"},{"id":2,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-09-26T18:30:00.000+0000"},{"id":3,"cameratype":"OUT","name":"anonymous02.png","timein":null,"timeout":"2018-09-26T18:30:00.000+0000"},{"id":4,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-10-02T18:30:00.000+0000"},{"id":5,"cameratype":"OUT","name":"anonymous02.png","timein":null,"timeout":"2018-10-02T18:30:00.000+0000"},{"id":6,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-10-03T18:30:00.000+0000"}]
+		b. Get Rest Service - For GETTING HISTORY DATA
+			i> findByCameratype
+					URL => http://localhost:8080/history/cameratype/out
+					REQUEST BODY => No body needed.
+					OUTPUT => 
+					[{"id":1,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-09-25T18:30:00.000+0000"},
+					{"id":2,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-09-26T18:30:00.000+0000"},
+					{"id":3,"cameratype":"OUT","name":"anonymous02.png","timein":null,
+					"timeout":"2018-09-26T18:30:00.000+0000"},
+					{"id":4,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-10-02T18:30:00.000+0000"},
+					{"id":5,"cameratype":"OUT","name":"anonymous02.png","timein":null,
+					"timeout":"2018-10-02T18:30:00.000+0000"},
+					{"id":6,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-10-03T18:30:00.000+0000"}]
 
 
 					
-ii> findById			
-URL => http://localhost:8080/history/id/2
-REQUEST BODY => No body needed.
-OUTPUT => {
-    "id": 2,
-    "cameratype": "OUT",
-    "name": "anonymous01.png",
-    "timein": null,
-    "timeout": "2018-09-26T18:30:00.000+0000"
-}
-
-iii> findByName
-URL => http://localhost:8080/history/name/anonymous01.png
-REQUEST BODY => No body needed.
-OUTPUT => [{"id":1,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-09-25T18:30:00.000+0000"},{"id":2,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-09-26T18:30:00.000+0000"},{"id":4,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-10-02T18:30:00.000+0000"},{"id":6,"cameratype":"OUT","name":"anonymous01.png","timein":null,"timeout":"2018-10-03T18:30:00.000+0000"}]
-
+			ii> findById			
+					URL => http://localhost:8080/history/id/2
+					REQUEST BODY => No body needed.
+					OUTPUT => {
+					    "id": 2,
+					    "cameratype": "OUT",
+					    "name": "anonymous01.png",
+					    "timein": null,
+					    "timeout": "2018-09-26T18:30:00.000+0000"
+					}
+	
+			iii> findByName
+					URL => http://localhost:8080/history/name/anonymous01.png
+					REQUEST BODY => No body needed.
+					OUTPUT => 
+					[{"id":1,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-09-25T18:30:00.000+0000"},
+					{"id":2,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-09-26T18:30:00.000+0000"},
+					{"id":4,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-10-02T18:30:00.000+0000"},
+					{"id":6,"cameratype":"OUT","name":"anonymous01.png","timein":null,
+					"timeout":"2018-10-03T18:30:00.000+0000"}]
 					
+						
+	
+			iii> findALL
+					URL => http://localhost:8080/history/histories
+					REQUEST BODY => No body needed.
+					OUTPUT =>[
+					    {
+					        "id": 1,
+					        "cameratype": "OUT",
+					        "name": "anonymous01.png",
+					        "timein": null,
+					        "timeout": "2018-09-25T18:30:00.000+0000"
+					    },
+					    {
+					        "id": 2,
+					        "cameratype": "OUT",
+					        "name": "anonymous01.png",
+					        "timein": null,
+					        "timeout": "2018-09-26T18:30:00.000+0000"
+					    },
+					    {
+					        "id": 3,
+					        "cameratype": "OUT",
+					        "name": "anonymous02.png",
+					        "timein": null,
+					        "timeout": "2018-09-26T18:30:00.000+0000"
+					    },
+					    {
+					        "id": 4,
+					        "cameratype": "OUT",
+					        "name": "anonymous01.png",
+					        "timein": null,
+					        "timeout": "2018-10-02T18:30:00.000+0000"
+					    },
+					    {
+					        "id": 5,
+					        "cameratype": "OUT",
+					        "name": "anonymous02.png",
+					        "timein": null,
+					        "timeout": "2018-10-02T18:30:00.000+0000"
+					    },
+					    {
+					        "id": 6,
+					        "cameratype": "OUT",
+					        "name": "anonymous01.png",
+					        "timein": null,
+					        "timeout": "2018-10-03T18:30:00.000+0000"
+					    }
+					]
+	
 
-iii> findALL
-URL => http://localhost:8080/history/histories
-REQUEST BODY => No body needed.
-OUTPUT =>[
-    {
-        "id": 1,
-        "cameratype": "OUT",
-        "name": "anonymous01.png",
-        "timein": null,
-        "timeout": "2018-09-25T18:30:00.000+0000"
-    },
-    {
-        "id": 2,
-        "cameratype": "OUT",
-        "name": "anonymous01.png",
-        "timein": null,
-        "timeout": "2018-09-26T18:30:00.000+0000"
-    },
-    {
-        "id": 3,
-        "cameratype": "OUT",
-        "name": "anonymous02.png",
-        "timein": null,
-        "timeout": "2018-09-26T18:30:00.000+0000"
-    },
-    {
-        "id": 4,
-        "cameratype": "OUT",
-        "name": "anonymous01.png",
-        "timein": null,
-        "timeout": "2018-10-02T18:30:00.000+0000"
-    },
-    {
-        "id": 5,
-        "cameratype": "OUT",
-        "name": "anonymous02.png",
-        "timein": null,
-        "timeout": "2018-10-02T18:30:00.000+0000"
-    },
-    {
-        "id": 6,
-        "cameratype": "OUT",
-        "name": "anonymous01.png",
-        "timein": null,
-        "timeout": "2018-10-03T18:30:00.000+0000"
-    }
-]
 
-
-
-c. Update Rest Service -For  UPDATING HISTORY DATA
-URL =>  http://localhost:8080/history/update/name/anonymous01.png
-REQUEST BODY => No body needed.
-OUTPUT => Deleted id = 1 Successfully
-
-	d. Delete Rest Service - For REMOVING HISTORY DATA
-URL =>  http://localhost:8080/history/delete/id/6
-REQUEST BODY => No body needed.
-OUTPUT => Deleted id = 6 Successfully
+		c. Update Rest Service -For  UPDATING HISTORY DATA
+			URL =>  http://localhost:8080/history/update/name/anonymous01.png
+			REQUEST BODY => No body needed.
+			OUTPUT => Deleted id = 1 Successfully
+			
+		d. Delete Rest Service - For REMOVING HISTORY DATA
+			URL =>  http://localhost:8080/history/delete/id/6
+			REQUEST BODY => No body needed.
+			OUTPUT => Deleted id = 6 Successfully
 
 
 	
 
-4. LoginDetails (for login)
+	4. LOGINDETAILS (for login)
     a. Post Rest Service - For CREATING/ADDING LOGINDETAILS DATA
-URL => http://localhost:8080/login
-REQUEST BODY => {
-				  	"username" : "admin", 
-					"password" : "admin123",
-					"role": "ADMIN"
-				}
-OUTPUT => {
-    "id": 3,
- 		   "username": "admin",
-   		   "password": "admin123",
-  		  "role": "ADMIN"
-}
+			URL => http://localhost:8080/login
+			REQUEST BODY => {
+							  	"username" : "admin", 
+								"password" : "admin123",
+								"role": "ADMIN"
+							}
+			OUTPUT => {
+			    "id": 3,
+			 		   "username": "admin",
+			   		   "password": "admin123",
+			  		  "role": "ADMIN"
+			}
 
 	
-b. Get Rest Service - For GETTING LOGINDETAILS DATA
+	b. Get Rest Service - For GETTING LOGINDETAILS DATA
 	
-i> findByName
-URL => http://localhost:8080/login/username/admin
-REQUEST BODY => No body needed.
-OUTPUT => {"id":3,"username":"admin","password":"admin123","role":"ADMIN"}
+		i> findByName
+				URL => http://localhost:8080/login/username/admin
+				REQUEST BODY => No body needed.
+				OUTPUT => 
+				{"id":3,"username":"admin","password":"admin123","role":"ADMIN"}
 
 
 					
-ii> findById			
-URL => http://localhost:8080/login/id/1
-REQUEST BODY => No body needed.
-OUTPUT => {"id":1,"username":"test","password":"test123","role":"USER"}
+		ii> findById			
+				URL => http://localhost:8080/login/id/1
+				REQUEST BODY => No body needed.
+				OUTPUT => {"id":1,"username":"test","password":"test123","role":"USER"}
 
 					
 
-iii> findALL
-URL => http://localhost:8080/login/logindetails
-REQUEST BODY => No body needed.
-OUTPUT =>[{"id":1,"username":"test","password":"test123","role":"USER"},{"id":2,"username":"neuro","password":"test123","role":"USER"},{"id":3,"username":"admin","password":"admin123","role":"ADMIN"}]
+		iii> findALL
+				URL => http://localhost:8080/login/logindetails
+				REQUEST BODY => No body needed.
+				OUTPUT =>[{"id":1,"username":"test","password":"test123","role":"USER"},
+				{"id":2,"username":"neuro","password":"test123","role":"USER"},
+				{"id":3,"username":"admin","password":"admin123","role":"ADMIN"}]
 
-iv> findByNameAndRole
-URL => http://localhost:8080/login/nameandrole?username=neuro&role=user
-REQUEST BODY => No body needed.
-OUTPUT =>{"id":2,"username":"neuro","password":"test123","role":"USER"}
+		iv> findByNameAndRole
+				URL => http://localhost:8080/login/nameandrole?username=neuro&role=user
+				REQUEST BODY => No body needed.
+				OUTPUT =>{"id":2,"username":"neuro","password":"test123","role":"USER"}
 
 
 
 
-c. Update Rest Service -For  UPDATING LOGINDETAILS DATA
-URL => http://localhost:8080/login/update/username/neuro 
-REQUEST BODY => {
-						"password" : "neuro123"
-				}
-OUTPUT => {
+	c. Update Rest Service -For  UPDATING LOGINDETAILS DATA
+			URL => http://localhost:8080/login/update/username/neuro 
+			REQUEST BODY => { "password" : "neuro123" }
+			OUTPUT => {
 				"id": 2,
-  				 "username": "neuro",
-   				 "password": "neuro123",
-   				 "role": "USER"
-
+				"username": "neuro",
+             "password": "neuro123",
+             "role": "USER"
 		}
 
 
 
-d. Delete Rest Service - For REMOVING LOGINDETAILS DATA
-i> deleteById
+	d. Delete Rest Service - For REMOVING LOGINDETAILS DATA
+		i> deleteById
 
-URL =>  http://localhost:8080/login/delete/id/2
-REQUEST BODY => No body needed.
-OUTPUT => Deleted id = 2 Successfully
-i> deleteByName
-URL =>  http://localhost:8080/login/delete/username/neuro
-REQUEST BODY => No body needed.
-OUTPUT => Deleted username = neuro Successfully
+			URL =>  http://localhost:8080/login/delete/id/2
+			REQUEST BODY => No body needed.
+			OUTPUT => Deleted id = 2 Successfully
+		ii> deleteByName
+			URL =>  http://localhost:8080/login/delete/username/neuro
+			REQUEST BODY => No body needed.
+			OUTPUT => Deleted username = neuro Successfully
 
 
 	
-5. First IN and Last OUT TIMINGS of Employee 
-	a. By Date Rest Service - To get data of employee for the date
+	5. First IN and Last OUT TIMINGS of Employee 
+		a. By Date Rest Service - To get data of employee for the date
 		URL =>  http://localhost:8080/attendance/fordate/2018-10-05
 		REQUEST BODY => No body needed.
-		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+		OUTPUT => [["2018-10-05T17:32:13.000+0000",
+		"2018-10-05T18:00:31.000+0000","anonymous01.png"]]
 
 
-b. By Month Rest Service - To get data of employee for the Month
-i>. using abbreviation for month names ex Jan, FEB, mar,etc...
+	b. By Month Rest Service - To get data of employee for the Month
+	i>. using abbreviation for month names ex Jan, FEB, mar,etc...
 		URL =>  http://localhost:8080/attendance/formonth/OCT
 		REQUEST BODY => No body needed.
-		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+		OUTPUT => [["2018-10-05T17:32:13.000+0000",
+		"2018-10-05T18:00:31.000+0000","anonymous01.png"]]
 
-ii>. using  month names ex January, FEBRUARY, march,etc...
+	ii>. using  month names ex January, FEBRUARY, march,etc...
 		URL =>  http://localhost:8080/attendance/formonth/OCTOBER
 		REQUEST BODY => No body needed.
-		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+		OUTPUT => [["2018-10-05T17:32:13.000+0000",
+		"2018-10-05T18:00:31.000+0000","anonymous01.png"]]
 
-iii>. using  date String ex “2018-10-09”
+	iii>. using  date String ex “2018-10-09”
 		URL =>  http://localhost:8080/attendance/formonth/2018-10-09
 		REQUEST BODY => No body needed.
-		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+		OUTPUT => [["2018-10-05T17:32:13.000+0000",
+		"2018-10-05T18:00:31.000+0000","anonymous01.png"]]
 
 
 
-c. Between Date Range Rest Service - To get data of employee Between the dates
+	c. Between Date Range Rest Service - To get data of employee Between the dates
 		URL =>  http://localhost:8080/attendance/fromto?from=2018-09-27&to=2018-10-05
 		REQUEST BODY => No body needed.
-		OUTPUT => [["2018-10-05T17:32:13.000+0000","2018-10-05T18:00:31.000+0000","anonymous01.png"]]
+		OUTPUT => [["2018-10-05T17:32:13.000+0000",
+		"2018-10-05T18:00:31.000+0000","anonymous01.png"]]
 
 	
-Only one row as no data before 2018-10-05
+	Only one row as no data before 2018-10-05
 
-6. UnIdentified Person
-	a. Post Rest Service - For CREATING/ADDING UNIDENTIFIED PERSON DATA
-	b. Get Rest Service - For GETTING UNIDENTIFIED PERSON DATA
-	c. Update Rest Service -For  UPDATING UNIDENTIFIED PERSON DATA
-	d. Delete Rest Service - For REMOVING UNIDENTIFIED PERSON DATA
+	6. UnIdentified Person
+		a. Post Rest Service - For CREATING/ADDING UNIDENTIFIED PERSON DATA
+			THIS IS DONE FROM SURVEILLANCE APP
+			
+		b. Get Rest Service - For GETTING UNIDENTIFIED PERSON DATA
+			i> findALL
+				URL =>  http://localhost:8080/unidentifiedperson/unidentifiedpersons
+				REQUEST BODY => No body needed.
+				OUTPUT => 
+					[{"id":1,"name":"anonymous01.png","picurl":"null",
+					"picname":"anonymous01.png","pictemplate":
+					[-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,2,-128,0,0,1,
+					-32,8,2,0,0,0,-70,-77,75,-77,0,0,-128,0......],unIdentified,null,
+					anonymous01.png,IN,"2018-10-10 00:00:00"},
+					{"id":1,"name":"anonymous02.png","picurl":"null",
+					"picname":"anonymous02.png","pictemplate":
+					[-119,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,2,-128,0,0,1,-32,
+					8,2,0,0,0,-70,-77,75,-77,0,0,-128,0......],unIdentified,null,
+					anonymous02.png,IN,"2018-10-10 00:00:00"}]
+				
+			ii> using findByNameAndCameratype
+						URL =>  http://localhost:8080/unidentifiedperson/nameandtype?
+						name=anonymous01.png&type=IN
+						REQUEST BODY => No body needed.
+						OUTPUT => 
+							{"id":1,"name":"anonymous01.png","picurl":"null",
+							"picname":"anonymous01.png","pictemplate":
+							[-119,80,78,71,13,10,26,10,0,0,0,13,73,72,
+							68,82,0,0,2,-128,0,0,1,-32,8,2,0,0,0,-70,-77,
+							75,-77,0,0,-128,0......],unIdentified,null,
+							anonymous01.png,IN,"2018-10-10 00:00:00"}
+					
+		c. Update Rest Service -For  UPDATING UNIDENTIFIED PERSON DATA
+				No UPDATES CAN BE DONE
+		
+		d. Delete Rest Service - For REMOVING UNIDENTIFIED PERSON DATA
+				* URL =>  localhost:8080/unidentifiedperson/delete/id/2
+				* REQUEST BODY => No body needed.
+				* OUTPUT => Deleted id = 2 Successfully
+		
 	
-7. Notification 
-	a. Post Rest Service - For CREATING/ADDING NOTIFICATION DATA
-	b. Get Rest Service - For GETTING NOTIFICATION DATA
+	7. NOTIFICATION 
+		a. Post Rest Service - For CREATING/ADDING NOTIFICATION DATA
+			THIS IS DONE FROM SURVEILLANCE APP
+	
+		b. Get Rest Service - For GETTING NOTIFICATION DATA
+	
+			i> using findALL for getting all notifications
+				* URL =>  http://localhost:8080/notification/notifications
+				* REQUEST BODY => No body needed.
+				* OUTPUT =>  
+							[{"id":15,"title":"UnIdentified","target":"ADMIN",
+							"origin":"SurveillanceApp",
+							"description":"anonymous01.png,IN","status":"HIDDEN",
+							"timestamp":"2018-10-08T18:30:00.000+0000"},
+							{"id":16,"title":"UnIdentified","target":"ADMIN",
+							"origin":"SurveillanceApp",
+							"description":"anonymous02.png,IN","status":"HIDDEN",
+							"timestamp":"2018-10-08T18:30:00.000+0000"},
+							{"id":17,"title":"UnIdentified","target":"ADMIN",
+							"origin":"SurveillanceApp",
+							"description":"anonymous03.png,IN","status":"HIDDEN",
+							"timestamp":"2018-10-08T18:30:00.000+0000"},
+							{"id":18,"title":"UnIdentified","target":"ADMIN",
+							"origin":"SurveillanceApp",
+							"description":"anonymous04.png,OUT","status":"HIDDEN",
+							"timestamp":"2018-10-08T18:30:00.000+0000"},
+							{"id":19,"title":"UnIdentified","target":"ADMIN",
+							"origin":"SurveillanceApp",
+							"description":"anonymous05.png,OUT","status":"HIDDEN",
+							"timestamp":"2018-10-08T18:30:00.000+0000"}]
+				
+		ii> using findByDescription 
+			* URL =>  http://localhost:8080/notification/nameandtype/anonymous04.png,OUT
+			* REQUEST BODY => No body needed.
+			* OUTPUT =>        
+				{"id":18,"title":"UnIdentified","target":"ADMIN",
+				"origin":"SurveillanceApp",
+				"description":"anonymous04.png,OUT","status":"HIDDEN",
+				"timestamp":"2018-10-08T18:30:00.000+0000"}
+			
 	c. Update Rest Service -For  UPDATING NOTIFICATION DATA
+		* URL =>  localhost:8080/notification/update/nameandtype/anonymous04.png,OUT
+		* REQUEST BODY =>{ "status": "VISIBLE" }
+		* OUTPUT => {
+    			"id": 18,
+             "title": "UnIdentified",
+             "target": "ADMIN",
+             "origin": "SurveillanceApp",
+             "description": "anonymous04.png,OUT",
+             "status": "VISIBLE",
+             "timestamp": "2018-10-08T18:30:00.000+0000"
+            }
+	
+	
 	d. Delete Rest Service - For REMOVING NOTIFICATION DATA
-
+		* URL =>  localhost:8080/notification/delete/id/19
+		* REQUEST BODY => No body needed.
+		* OUTPUT => Deleted id = 19 Successfully
 

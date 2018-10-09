@@ -30,9 +30,9 @@ public class NotificationController {
 		return repository.findAll();
 	}
 
-	@GetMapping(path = "/title/{title}")
+	@GetMapping(path = "/nameandtype/{title}")
 	public Notification find(@PathVariable("title") String title) {
-		return repository.findByTitle(title);
+		return repository.findByDescription(title);
 	}
 
 	@PostMapping(consumes = "application/json")
@@ -47,7 +47,7 @@ public class NotificationController {
 		return "Deleted id = "+id+" Successfully";
 	}
 
-	@PutMapping(path = "/update/name/{name}")
+	@PutMapping(path = "/update/nameandtype/{name}")
 	public Notification update(@PathVariable("name") String name, @RequestBody Notification notification)
 			throws BadHttpRequest {
 		Notification notify = repository.findByDescription(name);
