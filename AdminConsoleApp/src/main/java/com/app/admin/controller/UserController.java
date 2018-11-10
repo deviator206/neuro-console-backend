@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import javax.xml.bind.DatatypeConverter;
@@ -31,6 +33,7 @@ import com.app.admin.repository.UserRepository;
 import com.app.admin.request.CreateUserRequest;
 import com.app.admin.response.CreateUserRespose;
 import com.app.admin.response.GenericResponse;
+import com.app.admin.response.ListOfUsersResponse;
 //import com.app.admin.request.UserRequest;
 import com.app.admin.validator.UserDataValidator;
 
@@ -52,13 +55,40 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "/id/{id}")
-	public User findById(@PathVariable("id") int id) {
-		return repository.findById(id);
+	public ListOfUsersResponse findById(@PathVariable("id") int id) {
+		ListOfUsersResponse listOfUsersResponse=new ListOfUsersResponse();
+		boolean successFlag=true;
+		try{
+			List<User> listOfUsers=new ArrayList<User>() ;
+			listOfUsers=repository.findByIdIn(id);
+			listOfUsersResponse.setListOfUsers(listOfUsers);
+		}catch(Exception ex){
+			successFlag=false;
+			listOfUsersResponse.setDetailMessageOnFailure(ex.getMessage());
+			ex.printStackTrace();
+		}
+		
+		listOfUsersResponse.setSuccessFlag(successFlag);
+		return listOfUsersResponse;
+		
 	}
 
 	@RequestMapping(path = "/name/{user}")
-	public User findByName(@PathVariable("user") String user) {
-		return repository.findByName(user);
+	public ListOfUsersResponse findByName(@PathVariable("user") String user) {
+		ListOfUsersResponse listOfUsersResponse=new ListOfUsersResponse();
+		boolean successFlag=true;
+		try{
+			List<User> listOfUsers=new ArrayList<User>() ;
+			listOfUsers=repository.findByNameContaining(user);
+			System.out.println("WE GET LIST OF USERS BY NAME");
+			listOfUsersResponse.setListOfUsers(listOfUsers);
+		}catch(Exception ex){
+			successFlag=false;
+			listOfUsersResponse.setDetailMessageOnFailure(ex.getMessage());
+			ex.printStackTrace();
+		}
+		listOfUsersResponse.setSuccessFlag(successFlag);
+		return listOfUsersResponse;
 	}
 
 	@RequestMapping(path = "/phone/{phone}")
