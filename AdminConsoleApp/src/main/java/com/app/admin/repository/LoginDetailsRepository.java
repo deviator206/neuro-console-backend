@@ -14,5 +14,6 @@ public interface LoginDetailsRepository extends CrudRepository<LoginDetails, Lon
 	
 	LoginDetails findByUsernameAndRole(String username,String role);
 
+	LoginDetails findByUsernameAndPassword(String username,String password);
 
 }
